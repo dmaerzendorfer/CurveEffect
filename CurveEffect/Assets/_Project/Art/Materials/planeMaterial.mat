@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BendMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 8199966c66adb1147885f05cd9747506, type: 3}
+  m_Name: planeMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: 8c7315b932a9ed6459ead3af4bccd284, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -50,7 +50,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 10309, guid: 0000000000000000f000000000000000, type: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 3, y: 3}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -86,6 +86,7 @@ Material:
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Amount: 0.0094
+    - _BendingAmount: 0.015
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1

@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5e60f8e3df47bf47bc9dfb5bb546f30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Runtime.Manager.BendingManager
+  bendingAmount: 0.0094

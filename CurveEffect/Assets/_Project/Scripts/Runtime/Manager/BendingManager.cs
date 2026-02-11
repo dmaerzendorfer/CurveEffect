@@ -1,3 +1,4 @@
+using EditorAttributes;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -7,8 +8,12 @@ namespace _Project.Scripts.Runtime.Manager
     public class BendingManager : MonoBehaviour
     {
         private const string BendingShaderKeywordName = "_ENABLE_BENDING";
+        private const string BendingAmountName = "_BendingAmount";
+        [Range(0f,0.1f)]
+        public float bendingAmount = 0.015f;
+
         private GlobalKeyword _bendingShaderKeyword;
-        
+
         private void Awake()
         {
             _bendingShaderKeyword = GlobalKeyword.Create(BendingShaderKeywordName);
@@ -22,17 +27,28 @@ namespace _Project.Scripts.Runtime.Manager
 #endif
         }
 
+        private void OnValidate()
+        {
+            ApplyBendingAmount();
+        }
+
 
         private void OnEnable()
         {
             RenderPipelineManager.beginCameraRendering += OnBeginCameraRendering;
             RenderPipelineManager.endCameraRendering += OnEndCameraRendering;
+            ApplyBendingAmount();
         }
 
         private void OnDisable()
         {
             RenderPipelineManager.beginCameraRendering -= OnBeginCameraRendering;
             RenderPipelineManager.endCameraRendering -= OnEndCameraRendering;
+        }
+
+        private void ApplyBendingAmount()
+        {
+            Shader.SetGlobalFloat(BendingAmountName, bendingAmount);
         }
 
         private void OnEndCameraRendering(ScriptableRenderContext ctx, Camera cam)
