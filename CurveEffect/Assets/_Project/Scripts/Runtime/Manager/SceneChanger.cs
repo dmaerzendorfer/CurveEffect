@@ -18,13 +18,7 @@ namespace _Project.Scripts.Runtime.Manager
 
 
         public bool IsTransitioning { get; set; } = false;
-
-
-        public override void Awake()
-        {
-            base.Awake();
-            DontDestroyOnLoad(gameObject);
-        }
+        
 
         public void ChangeToScene(int sceneId, Action onCompleteCallback = null)
         {

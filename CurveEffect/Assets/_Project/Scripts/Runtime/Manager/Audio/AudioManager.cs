@@ -18,9 +18,7 @@ namespace _Project.Scripts.Runtime.Manager.Audio
         public override void Awake()
         {
             base.Awake();
-
-            DontDestroyOnLoad(gameObject);
-
+            
             foreach (var s in sounds)
             {
                 s.source = gameObject.AddComponent<AudioSource>();

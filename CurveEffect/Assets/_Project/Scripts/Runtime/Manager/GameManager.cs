@@ -8,12 +8,6 @@ namespace _Project.Scripts.Runtime.Manager
         public SceneChanger _sc;
         public AudioManager _am;
 
-        public override void Awake()
-        {
-            base.Awake();
-            DontDestroyOnLoad(gameObject);
-        }
-
         private void Start()
         {
             if (!_sc)
