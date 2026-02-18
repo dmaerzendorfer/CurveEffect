@@ -110,7 +110,8 @@ namespace _Project.Scripts.Runtime.Player
 
             // apply movement (preserve Rigidbody Y velocity if you want physics like gravity)
             var velocity = _desiredDir * _currentSpeed; // units/sec
-            _rb.MovePosition(_rb.position + velocity * Time.fixedDeltaTime);
+            // _rb.MovePosition(_rb.position + velocity * Time.fixedDeltaTime);
+            _rb.linearVelocity = velocity * Time.fixedDeltaTime;
 
             // expose debug value
             currentSpeedDebug = _currentSpeed;

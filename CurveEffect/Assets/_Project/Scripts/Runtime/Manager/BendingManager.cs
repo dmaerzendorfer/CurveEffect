@@ -1,4 +1,3 @@
-using EditorAttributes;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -11,7 +10,9 @@ namespace _Project.Scripts.Runtime.Manager
         private const string BendingAmountName = "_BendingAmount";
         [Range(0f,0.1f)]
         public float bendingAmount = 0.015f;
-
+        
+        public bool enableBendingOnPlay = true;
+        
         private GlobalKeyword _bendingShaderKeyword;
 
         private void Awake()
@@ -19,11 +20,11 @@ namespace _Project.Scripts.Runtime.Manager
             _bendingShaderKeyword = GlobalKeyword.Create(BendingShaderKeywordName);
 #if UNITY_EDITOR
             if (Application.isPlaying)
-                Shader.SetKeyword(_bendingShaderKeyword, true);
+                Shader.SetKeyword(_bendingShaderKeyword, enableBendingOnPlay);
             else
                 Shader.SetKeyword(_bendingShaderKeyword, false);
 #else
-                 Shader.SetKeyword(_bendingShaderKeyword, true);
+                 Shader.SetKeyword(_bendingShaderKeyword, enableBending);
 #endif
         }
 
